@@ -1,0 +1,4 @@
+- name: restart nodejs
+  ansible.builtin.service:
+    name: nodejs
+    state: restarted

@@ -1,0 +1,14 @@
+- name: install nginx server
+  hosts: nginx
+  become: yes   # take sudo access
+  serial: 2
+  tasks:
+  - name: install nginx
+    ansible.builtin.package:  # to install a package/service # Heterogeneous module that can work for all distributions
+      name: nginx
+      state: present
+  - name: start nginx service
+    ansible.builtin.service:  # to start a package/service
+      name: nginx
+      state: started
+      enabled: true
